@@ -10,4 +10,4 @@ app.include_router(pen_router, prefix="/pens", tags=["pens"])
 
 @app.get("/")
 def root():
-    return {"message": "sex"}
+    return {"message": "off and running"}
