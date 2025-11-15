@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from typing import Annotated, Optional, List
 from .auth_router import get_current_user, optional_get_current_user
 
-router = APIRouter(prefix='/pens', tags=['pens'])
+router = APIRouter()
 db_dependency = Annotated[Session, Depends(get_db)]
 
 
