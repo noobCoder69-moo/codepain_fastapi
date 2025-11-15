@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables / Secrets
+.env
+
+# SQLite DB files
+*.db
+
+# Local settings / OS garbage
+.DS_Store
+*.swp
+*.swo
+*.log
+
+# Dependency / build stuff
+uv.lock
+dist/
+build/
+*.egg-info/
+
+# IDE/editor trash
+.vscode/
+.idea/
