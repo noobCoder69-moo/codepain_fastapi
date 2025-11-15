@@ -3,7 +3,7 @@ from typing import Optional
 
 # ---------------- USERS ----------------
 
-class UserCreate(BaseModel):
+class Users(BaseModel):
     username: str
     email: EmailStr
     password: str
@@ -26,7 +26,8 @@ class Token(BaseModel):
 
 # ---------------- PENS ----------------
 
-class PenCreate(BaseModel):
+class Pens(BaseModel):
+    id : int
     html: str
     css: str
     js: str

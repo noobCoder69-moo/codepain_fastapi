@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from src.database import get_db
-import schemas, models
+from src import models, schemas
 from sqlalchemy.orm import Session
 from typing import Annotated, Optional, List
-from auth_routes import get_current_user, optional_get_current_user
+from .auth_router import get_current_user, optional_get_current_user
 
 router = APIRouter(prefix='/pens', tags=['pens'])
 db_dependency = Annotated[Session, Depends(get_db)]

@@ -1,8 +1,8 @@
 from fastapi import HTTPException, Depends, status, APIRouter
 from passlib.context import CryptContext
-import models, schemas
+from src import models, schemas
 from sqlalchemy.orm import Session
-from database import get_db
+from src.database import get_db
 from jose import jwt, JWTError
 from datetime import timedelta, datetime, timezone
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
@@ -56,7 +56,7 @@ def register_user(request: schemas.Users, db: db_dependency):
 
 
 @router.post("/login", response_model=schemas.Token)
-def login_user(request: OAuth2PasswordRequestForm = Depends(), db: db_dependency = Depends()):
+def login_user(request: Annotated[OAuth2PasswordRequestForm, Depends()], db: db_dependency):
     user = db.query(models.UserModel).filter(models.UserModel.username == request.username).first()
 
     if not user or not verify_password(request.password, user.password):
