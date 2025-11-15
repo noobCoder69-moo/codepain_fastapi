@@ -3,6 +3,8 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 SQLALCHEMY_DB_URL = os.getenv('DATABASE_URL')
 
 engine = create_engine(SQLALCHEMY_DB_URL, connect_args={'check_same_thread' : False})
